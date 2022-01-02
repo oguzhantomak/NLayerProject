@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NLayerProject.Core.Models
 {
-    internal class Category : BaseClass
+    public class Category : BaseClass
     {
         public Category() => Products = new Collection<Product>();
 

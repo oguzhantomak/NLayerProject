@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NLayerProject.Core.Models
 {
-    internal class BaseClass
+    public class BaseClass
     {
 
         public BaseClass()

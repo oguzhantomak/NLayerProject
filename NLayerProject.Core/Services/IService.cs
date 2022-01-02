@@ -5,14 +5,13 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NLayerProject.Core.Repositories
+namespace NLayerProject.Core.Services
 {
-
     /// <summary>
-    /// * Repository sadece veritabanı ile ilgili işlemleri gerçekleştirir.
+    /// IService metodumuz repositoryler ile iletişimde olacak. Bugün mssql kullanırken ileride farklı bir database ile çalıştığımız takdirde sadece repositoryler değişecek. Servis baki kalacak.
     /// </summary>
-    /// <typeparam name="TEntity">TEntity bir entity/model olacak ve bu model/entity bir class olmak zorunda!</typeparam>
-    public interface IRepository<TEntity> where TEntity : class
+    /// <typeparam name="TEntity">Entity tipinde bir class almalı/alabilir.</typeparam>
+    public interface IService<TEntity> where TEntity : class
     {
         Task<TEntity> GetByIdAsync(int id);
 
