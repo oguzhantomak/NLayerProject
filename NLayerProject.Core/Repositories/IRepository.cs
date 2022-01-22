@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq.Expressions;
 
 namespace NLayerProject.Core.Repositories
 {
@@ -16,7 +11,8 @@ namespace NLayerProject.Core.Repositories
     {
         Task<TEntity> GetByIdAsync(int id);
 
-        Task<IEnumerable<TEntity>> GetAllAsync();
+        //IQueryable'da veritabanına sorgu atılmaz. Ne zaman ToList çağırırsak o zaman sorgu atılır.
+        IQueryable<TEntity> GetAll();
 
         //TEntity alan, geriye bool dönen metot
         //IEnumerable tüm verileri alıp memory de tutarak, sorgulama işlemlerini memory üzerinden yaparken IQueryable ise şartlara bağlı query oluşturarak doğrudan veritabanı üzerinden sorgulama işlemi yapar.
@@ -35,6 +31,6 @@ namespace NLayerProject.Core.Repositories
 
         void RemoveRange(IEnumerable<TEntity> entities);
 
-        TEntity Update(TEntity entity);
+        void Update(TEntity entity);
     }
 }
