@@ -6,20 +6,17 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using NLayerProject.Core.Models;
 
-namespace NLayerProject.Data
+namespace NLayerProject.Repository
 {
     public class AppDbContext : DbContext
     {
+        //Veritabanı yolunu startup(.net 6'da kalktı program.cs var) üzerinden alacağımız için DbContextOptions alan bir constructor oluşturuyoruz.
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
+            
         }
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        }
     }
 }

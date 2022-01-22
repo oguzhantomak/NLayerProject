@@ -7,7 +7,7 @@ using NLayerProject.Core.Repositories;
 
 namespace NLayerProject.Core.UnitOfWorks
 {
-    internal interface IUnitOfWork
+    public interface IUnitOfWork
     {
         IProductRepository Products { get; }
 
