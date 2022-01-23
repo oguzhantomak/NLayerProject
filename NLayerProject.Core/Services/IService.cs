@@ -26,9 +26,9 @@ namespace NLayerProject.Core.Services
         // Name'i Bebek Bezi olan ilk kaydı/ilk bulduğunu getirecek. 
         Task<TEntity> SingleOrDefaultAsync(Expression<Func<TEntity, bool>> predicate);
 
-        Task AddAsync(TEntity entity);
+        Task<TEntity> AddAsync(TEntity entity);
 
-        Task AddRangeAsync(IEnumerable<TEntity> entities);
+        Task<IEnumerable<TEntity>> AddRangeAsync(IEnumerable<TEntity> entities);
 
         Task RemoveAsync(TEntity entity);
 
