@@ -9,10 +9,6 @@ namespace NLayerProject.Core.UnitOfWorks
 {
     public interface IUnitOfWork
     {
-        IProductRepository Products { get; }
-
-        ICategoryRepository Categories { get; }
-
         /// <summary>
         /// CommitAsync, implement ettiğimiz zaman SaveChanges metodunu çağıracak.
         /// </summary>
