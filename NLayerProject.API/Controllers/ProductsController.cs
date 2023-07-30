@@ -15,13 +15,21 @@ namespace NLayerProject.API.Controllers
     public class ProductsController : CustomBaseController
     {
         private readonly IMapper _mapper;
-        private readonly IService<Product> _service;
+        private readonly IProductService _service;
 
-        public ProductsController(IMapper mapper, IService<Product> service)
+        public ProductsController(IMapper mapper, IProductService service, IProductService productService)
         {
             _mapper = mapper;
             _service = service;
         }
+
+        //Action'ın ismini otomatik olarak al demek yani GET api/products/GetProductsWithCategory olarak belirledik. İleride bu endpointin ismini değişitirsek bile action belirttiğimiz için otomatik olarak template de değişecek.
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetProductsWithCategory()
+        {
+            return CreateActionResult(await _service.GetProductsWithCategory());
+        }
+
 
         [HttpGet]
         public async Task<IActionResult> GetAll()

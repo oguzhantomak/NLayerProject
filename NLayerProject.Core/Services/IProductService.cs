@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NLayerProject.Core.DTOs;
+using NLayerProject.Core.DTOs.Product;
 using NLayerProject.Core.Models;
 
 namespace NLayerProject.Core.Services
@@ -20,5 +22,10 @@ namespace NLayerProject.Core.Services
         //bool ControlInnerBarcode(Product product);
 
         Task<Product> GetWithCategoryByIdAsync(int productId);
+
+        //Data katmanı entity dönerken servisler DTO döner.
+        Task<CustomResponseDto<List<ProductWithCategoryDto>>> GetProductsWithCategory();
+
+
     }
 }

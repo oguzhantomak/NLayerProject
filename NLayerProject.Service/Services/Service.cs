@@ -24,7 +24,14 @@ namespace NLayerProject.Service.Services
 
         public async Task<TEntity> GetByIdAsync(int id)
         {
-            return await _repository.GetByIdAsync(id);
+            var hasEntity = await _repository.GetByIdAsync(id);
+
+            if (hasEntity == null)
+            {
+                throw new ClientSideException($"{typeof(T).Name} not found!");
+            }
+
+            return hasEntity;
         }
 
         public async Task<IEnumerable<TEntity>> GetAllAsync()
